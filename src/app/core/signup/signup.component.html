@@ -1,0 +1,47 @@
+<div class="register">
+    <h1>
+        Sign Up
+    </h1>
+    <form class="register-form w-100">
+        <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="John Doe" [formControl]="nameFormControl">
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="user@example.com" [formControl]="emailFormControl">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="password" type="password" [formControl]="passwordFormControl">
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-checkbox name="tosCheck" [ngModel]="tosCheck" [required]="true">
+            I'm a checkbox
+        </mat-checkbox>
+
+        <div class="register-input w-100">
+            <button mat-raised-button color="primary" type="submit" class="w-100">Create Account</button>
+        </div>
+
+        <div class="login">
+            <span>Already have an account? </span>
+            <a [routerLink]="['/login']">Sign In</a>
+        </div>
+
+    </form>
+</div>

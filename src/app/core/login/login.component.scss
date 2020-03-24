@@ -1,0 +1,29 @@
+.login {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-form {
+    max-width: 320px;
+}
+
+.login-input {
+    display: flex;
+
+    >.sign-in {
+        width: 50%;
+    }
+
+    >.forgot-password {
+        margin: auto;
+    }
+}
+
+.sign-up {
+    text-align: center;
+    margin: 1rem 0;
+}
