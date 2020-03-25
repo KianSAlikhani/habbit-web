@@ -1,0 +1,12 @@
+.outlet {
+    margin-top: 0;
+    margin-bottom: 64px;
+    height: calc(100% - 64px);
+}
+
+@media only screen and (min-width: 992px) {
+    .outlet {
+        margin-top: 64px;
+        margin-bottom: 0;
+    }
+}
