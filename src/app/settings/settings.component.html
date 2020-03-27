@@ -6,39 +6,70 @@
                 Name
             </mat-panel-title>
             <mat-panel-description>
-                TEST USER
+                {{userAccount.name}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
     </mat-expansion-panel>
+
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Username
             </mat-panel-title>
             <mat-panel-description>
-                TEST_USER
+                {{userAccount.username}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <mat-label class="text-center">
+            <div class="mb-h">
+                You cannot change your username after creation. If you believe there is an error, please contact
+                support.
+            </div>
+        </mat-label>
+        <mat-form-field class="w-100">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" disabled value="TEST_USER">
+        </mat-form-field>
     </mat-expansion-panel>
+
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Birthday
             </mat-panel-title>
             <mat-panel-description>
-                01/01/0000
+                {{userAccount.birthday | date: 'MM/d/y'}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <mat-form-field class="w-100">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="birthdayPicker">
+            <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+            <mat-datepicker #birthdayPicker></mat-datepicker>
+        </mat-form-field>
     </mat-expansion-panel>
+
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
                 Mobile Number
             </mat-panel-title>
             <mat-panel-description>
-                +1 123 456-7890
+                +{{userAccount.areaCode}} {{parsePhoneNumber(userAccount.phoneNumber)}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <mat-form-field class="w-100">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
     </mat-expansion-panel>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -46,10 +77,16 @@
                 Email
             </mat-panel-title>
             <mat-panel-description>
-                LONGTESTEXAMPLE@EXAMPLE.COM
+                {{userAccount.email}}
             </mat-panel-description>
         </mat-expansion-panel-header>
+
+        <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput type="text">
+        </mat-form-field>
     </mat-expansion-panel>
+    
     <div class="expansion-section-title">SUPPORT</div>
     <!-- HELP -->
     <!-- PRIVACY -->
